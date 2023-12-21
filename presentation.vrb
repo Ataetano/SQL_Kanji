@@ -1,0 +1,29 @@
+\frametitle{คำสั่งในการ Query และผลลัพธ์: ข้อที่ 5}
+สมมติให้ญี่ปุ่นลงทุนกับการจัดสอบ JLPT 1,000,000,000 เยน ในปี 2022 จงแสดงว่าถ้าญี่ปุ่นจัดสอบในวันที่ 2 ม.ค. 2022 และ 3 ธ.ค. 2022 ญี่ปุ่นจะได้กำไร หรือ ขาดทุนเท่าใด
+  \begin{tiny}
+    \begin{lstlisting}[language=SQL]
+    SELECT
+      SUM(JLPT_informations.applicant) * 50 AS 'Applicants payment in Japan(USD)',
+      6718489.00 AS 'Japan Goverment investment(USD)',
+      CASE
+          WHEN (SUM(applicant)*50 - 6718489.00 ) > 0 THEN 'Gain a profit'
+          ELSE 'Loss'
+      END AS Answer
+    FROM JLPT_informations
+    INNER JOIN JLPT_locations
+    ON JLPT_locations.jlpt_information_id = JLPT_informations.jlpt_information_id
+    WHERE JLPT_locations.country = 'Japan';
+    \end{lstlisting}
+  \end{tiny}
+  \begin{tiny}
+  \begin{table}[ht]
+  \centering
+    \begin{tabular}{|c|c|c|}
+      \hline
+      \textbf{Applicants payment in Japan(USD)} & \textbf{Japan Goverment investment(USD)} & \textbf{Answer} \\
+      \hline
+      18570950 & 6718489.0 & Gain a profit \\
+      \hline
+    \end{tabular}
+  \end{table}
+  \end{tiny}

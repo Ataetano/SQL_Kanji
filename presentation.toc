@@ -1,0 +1,5 @@
+\selectlanguage *{english}
+\beamer@sectionintoc {1}{ที่มาและความสำคัญ}{3}{0}{1}
+\beamer@sectionintoc {2}{ER Diagram}{5}{0}{2}
+\beamer@sectionintoc {3}{การตั้งคำถาม}{7}{0}{3}
+\beamer@sectionintoc {4}{คำสั่งในการ Query และผลลัพธ์}{9}{0}{4}
